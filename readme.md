@@ -163,3 +163,32 @@ greeting = "Hello"
 name = "Alice"
 message = greeting + ", " + name
 print(message)  # Output: Hello, Alice
+
+# Comments in Python
+
+## Description
+Comments are a crucial part of programming that help developers understand the code. They are used to add notes or explanations to the code, making it easier to understand and maintain.
+
+## Types of Comments
+### Single Line Comments
+Single line comments start with the `#` symbol and continue until the end of the line.
+
+**Example:**
+```python
+# This is a single line comment
+
+"""
+This is a multi-line comment
+that spans over multiple lines
+"""
+
+'''
+This is also a multi-line comment
+that spans over multiple lines
+'''
+
+Best Practices
+Use comments to explain what the code is doing.
+Use comments to leave notes for yourself or others.
+Comments are not compiled, so they don’t affect the performance of the code.
+
