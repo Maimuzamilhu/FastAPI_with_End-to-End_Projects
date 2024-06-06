@@ -100,4 +100,66 @@ python hello.py
 
 This will execute your Python script.
 
-With Python and an IDE set up, you're now ready to dive into learning Fast API! Stay tuned for more guides and tutorials on building web applications with this powerful Python framework.
+
+# Python Variables
+
+In Python, a variable is a named container that holds a value. Variables are used to store data that can be manipulated and referenced throughout a program. They are an essential concept in programming, as they allow you to store and manipulate data dynamically.
+
+## Declaring Variables
+
+In Python, you don't need to explicitly declare variables or specify their data types. You can simply assign a value to a variable using the assignment operator (`=`). Python automatically determines the data type based on the value assigned.
+
+Here's an example:
+
+```python
+x = 5       # Integer
+y = 3.14    # Float
+name = "Alice"   # String
+is_student = True  # Boolean
+
+
+# Valid variable names
+name = "John"
+age = 25
+_temp_variable = 10
+
+# Invalid variable names
+# 1var = 10  (starts with a digit)
+# my-variable = 20  (contains a hyphen)
+# my variable = 30  (contains a space)
+
+
+x = 10
+name = "Alice"
+is_student = True
+
+
+x = y = z = 0
+
+name = "Bob"
+print(name)  # Output: Bob
+
+name = "Alice"
+print(name)  # Output: Alice
+
+"""
+Variables
+"""
+
+first_name = "Muzzamil"
+print(first_name)  # Output: Muzzamil
+
+first_name = "Khalid"
+print(first_name)  # Output: Khalid
+
+# Arithmetic operations with variables
+x = 10
+y = 3
+result = x + y
+print(result)  # Output: 13
+
+# Concatenating strings
+greeting = "Hello"
+name = "Alice"
+message = greeting + ", " + name
+print(message)  # Output: Hello, Alice
