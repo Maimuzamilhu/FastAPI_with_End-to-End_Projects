@@ -67,3 +67,37 @@ In our final project, we will:
 
 Excited? You should be! In the next step, we will cover the Python fundamentals necessary for working with FastAPI.
 
+
+## Installing Python
+
+Python is a crucial prerequisite for learning Fast API. To check if Python is already installed on your system, open a terminal and run the following command:
+
+\`\`\`
+python --version
+\`\`\`
+
+If Python is installed, this command will print the version number. If not, you'll need to install Python first. 
+
+Follow this well-written guide from Real Python to install Python on your operating system (Windows, macOS, or Linux): [Python 3 Installation & Setup Guide](https://realpython.com/installing-python/)
+
+## Setting up an IDE
+
+While Python files can be written in a simple text editor, an IDE (Integrated Development Environment) provides many useful features like code completion, debugging tools, and more. We recommend using VS Code, but you can use any IDE of your choice, such as PyCharm or Atom.
+
+To install VS Code on Windows 11, follow this step-by-step guide: [How to Download VS Code in Windows 11](https://www.supportyourtech.com/tech/how-to-download-vs-code-in-windows-11-a-step-by-step-guide/)
+
+For other operating systems or IDEs, refer to their official documentation.
+
+## Running Python in the IDE
+
+Once you have Python and an IDE installed, you can start writing and running Python code. In VS Code, you can create a new Python file by clicking on File > New File, and then saving the file with a `.py` extension (e.g., `hello.py`).
+
+To run the Python file, you can use the built-in terminal in VS Code (Terminal > New Terminal) and navigate to the directory where your Python file is located. Then, run the following command:
+
+\`\`\`
+python hello.py
+\`\`\`
+
+This will execute your Python script.
+
+With Python and an IDE set up, you're now ready to dive into learning Fast API! Stay tuned for more guides and tutorials on building web applications with this powerful Python framework.
