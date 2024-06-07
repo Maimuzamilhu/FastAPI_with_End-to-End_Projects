@@ -163,3 +163,78 @@ greeting = "Hello"
 name = "Alice"
 message = greeting + ", " + name
 print(message)  # Output: Hello, Alice
+```
+
+# Python Comments
+
+This documentation provides an overview of different types of comments in Python and examples of how to use them effectively.
+
+## Single-line Comments
+
+Single-line comments in Python start with the `#` symbol. Everything following the `#` on that line is ignored by the Python interpreter.
+
+Example:
+```python
+# This is a single-line comment explaining the next line of code
+print("Hi Eric")
+```
+In the example above, the comment explains that the next line of code prints "Hi Eric" to the console.
+
+# Multi-line Comments
+
+## Consecutive Single-line Comments
+When you need to write comments that span multiple lines, you can use consecutive single-line comments.
+```python
+# This is going over
+# Multiple
+# Lines
+```
+In the example above, each line of the comment starts with a # symbol.
+
+# Multi-line Strings
+Another way to add multi-line comments is to use multi-line strings. These are not technically comments but can be used as such. Multi-line strings are created using triple quotes (""" or '''). When not assigned to a variable, they are ignored by the interpreter.
+
+```python
+"""
+This is going over
+multiple 
+lines
+"""
+
+'''
+This is going over
+multiple 
+lines
+'''
+```
+
+Both examples above demonstrate how to create multi-line comments using triple quotes. They are interchangeable, so you can use either double or single quotes.
+
+# Usage Summary
+- Single-line comments: Use # to start a comment. Ideal for short, one-line comments.
+- Consecutive single-line comments: Use multiple # symbols at the beginning of each line for longer comments.
+- Multi-line strings as comments: Use triple quotes (""" or ''') to create comments that span multiple lines. These are useful for longer explanations and documentation.
+
+# Example Code with Comments
+Here's a full example demonstrating the use of comments in Python code:
+```python
+# This script prints a greeting message to the console
+
+# Define the greeting message
+message = "Hi Eric"
+
+# Print the greeting message
+print(message)
+
+# This is a comment spanning multiple lines
+# explaining the next section of code. Each line
+# starts with a hash symbol.
+
+"""
+The following block of code is currently commented out
+and will not be executed. It prints 'Hello World'.
+To enable it, remove the triple quotes.
+"""
+# print("Hello World")
+```
+This example shows a combination of single-line comments, multi-line comments using consecutive # symbols, and a multi-line string used as a comment block.
