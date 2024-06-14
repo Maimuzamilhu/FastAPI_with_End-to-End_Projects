@@ -1,6 +1,5 @@
 # to run this type uvicorn name:app --reload
 # CRUD operations
-
 from fastapi import FastAPI
 
 app = FastAPI()
