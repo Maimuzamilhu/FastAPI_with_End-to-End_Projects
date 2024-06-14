@@ -57,7 +57,7 @@ The fourth project:
 
 ### Project 5: Full Stack Development
 
-In our final project:
+In final project:
 
 - Build a full-stack application
 - Git and GitHub
