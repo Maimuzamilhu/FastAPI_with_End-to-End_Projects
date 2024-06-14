@@ -13,6 +13,12 @@ students = [
     {"Title": "Roll Number 17", "Name": "Wajahat Mansoori", "Address": "Model Colony"},
 ]
 
-@app.get("/names")
+@app.get("/students")
 async def read_student():
     return students
+
+@app.get("/students/{roll_num}")
+async def roll_number(roll_num: str):
+    for roll in students:
+        if roll.get("Title").casefold() == f"roll number {roll_num}".casefold():
+            return roll

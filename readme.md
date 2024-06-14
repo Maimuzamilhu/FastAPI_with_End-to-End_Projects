@@ -1,6 +1,6 @@
 # FastAPI Blog Repository
 
-Welcome to my FastAPIrepository! In this series, I dive deep into FastAPI, a modern, fast (high-performance), web framework for building APIs with Python. This repo will guide you through various projects to master FastAPI and its numerous features.
+Welcome to my FastAPI repository! In this series, I dive deep into FastAPI, a modern, fast (high-performance), web framework for building APIs with Python. This repo will guide you through various projects to master FastAPI and its numerous features.
 
 ## What is FastAPI?
 
@@ -43,22 +43,22 @@ Third project focus on:
 
 ### Project 3.5: Database Migration
 
-A smaller project where I have done:
+A smaller project where I have used:
 
 - Database migration techniques
 - Data management strategies
 
 ### Project 4: Testing
 
-The fourth project will teach:
+The fourth project:
 
 - Unit Testing
 - Integration Testing
 
 ### Project 5: Full Stack Development
 
-In our final project, I have build:
+In our final project:
 
 - Build a full-stack application
-- Learn about Git and GitHub
-- Deploy our application
+- Git and GitHub
+- Deploy application
