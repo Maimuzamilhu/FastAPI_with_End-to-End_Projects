@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2586e270-c2f3-4cb1-80ec-a0d9dcd1d5db" name="Changes" comment="Delete Method">
+    <list default="true" id="2586e270-c2f3-4cb1-80ec-a0d9dcd1d5db" name="Changes" comment="readme.md file of get operation">
+      <change afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/img_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/img_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/img_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/img_6.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/book.py" beforeDir="false" afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/book.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +243,23 @@
       <option name="project" value="LOCAL" />
       <updated>1718479988095</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="CRUD operations and query and path parameters">
+      <option name="closed" value="true" />
+      <created>1718488173240</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1718488173240</updated>
+    </task>
+    <task id="LOCAL-00023" summary="readme.md file of get operation">
+      <option name="closed" value="true" />
+      <created>1718492764027</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1718492764027</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -282,6 +302,8 @@
     <MESSAGE value="Query parameter and post METHOD" />
     <MESSAGE value="Put Method" />
     <MESSAGE value="Delete Method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete Method" />
+    <MESSAGE value="CRUD operations and query and path parameters" />
+    <MESSAGE value="readme.md file of get operation" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme.md file of get operation" />
   </component>
 </project>

@@ -70,3 +70,102 @@ Click the "Try it out" button. Then, click the "Execute" button. Swagger UI will
 After executing the request, you will see the response data. This includes the status code and the JSON response containing the list of books.
 ![img_2.png](img_2.png)
 
+
+# The read_book Endpoint
+The read_book endpoint allows users to retrieve a specific book from the collection based on the book's title. This endpoint demonstrates the use of path parameters in FastAPI, enabling dynamic URL paths that can accept user input.
+```
+@app.get("/books/{book_title}")
+async def read_book(book_title: str):
+    for book in BOOKS:
+        if book.get('title').casefold() == book_title.casefold():
+            return book
+```
+
+- **HTTP Method**: GET
+- **Path**: /books/{book_title}
+- **Path Parameter**: {book_title} is a path parameter that takes the title of the book as input.
+- **Description**: This endpoint searches the BOOKS list for a book with a title that matches book_title, ignoring case.
+- **Response**: If a match is found, it returns the book details as a JSON object. If no match is found, it returns None.
+# Path Parameters
+Path parameters are variables within the URL path that are used to capture user input. In this case, book_title is a path parameter that captures the title of the book from the URL and passes it to the read_book function.
+
+# Accessing Swagger UI
+- Start the FastAPI Application:
+Run your FastAPI application. By default, FastAPI will serve the application at http://127.0.0.1:8000.
+
+# Using Swagger UI to Test the read_book Endpoint
+### Locate the GET /books/{book_title} Endpoint:
+In the Swagger UI, find the section for the GET /books/{book_title} endpoint. It should be listed among other endpoints defined in your FastAPI application.
+![img_3.png](img_3.png)
+### Expand the Endpoint:
+Click on the GET /books/{book_title} endpoint to expand it. You will see a "Try it out" button and a field to input the book_title.
+![img_4.png](img_4.png)
+
+### Test the Endpoint:
+Click the "Try it out" button. Enter the title of the book you want to search for in the book_title field. Then, click the "Execute" button. Swagger UI will send a request to the GET /books/{book_title} endpoint and display the response.
+![img_5.png](img_5.png)
+
+### View the Response:
+After executing the request, you will see the response data. This includes the status code and the JSON response containing the details of the book, if found.
+
+![img_6.png](img_6.png)
+### Example Response
+If the book with the title "**Title One**" exists in the BOOKS list, the response might look like this:
+
+```
+{
+    "title": "Title One",
+    "author": "Author One",
+    "category": "science"
+}
+```
+
+# The read_category_by_query Endpoint
+The read_category_by_query endpoint allows users to retrieve books from the collection based on their category. This endpoint demonstrates the use of query parameters in FastAPI, enabling users to filter results by providing specific query parameters.
+```
+@app.get("/books/")
+async def read_category_by_query(category: str):
+    book_to_return = []
+    for book in BOOKS:
+        if book.get("category").casefold() == category.casefold():
+            book_to_return.append(book)
+    return book_to_return
+   ```
+- **HTTP Method**: GET
+- **Path**: /books/
+- **Query Parameter**: category is a query parameter that takes the category of the books as input.
+- **Description**: This endpoint searches the BOOKS list for books with a category that matches category, ignoring case.
+- **Response**: It returns a list of books in the specified category as a JSON array.
+
+# Query Parameters
+Query parameters are specified in the URL after the ? symbol and are typically used to filter or sort data. In this case, category is a query parameter used to filter books by their category.
+```http://127.0.0.1:8000/books/?category=science```
+
+# Using Swagger UI to Test the read_category_by_query Endpoint
+### Locate the GET /books/ Endpoint:
+In the Swagger UI, find the section for the GET /books/ endpoint. It should be listed among other endpoints defined in your FastAPI application.
+![img_7.png](img_7.png)
+# Expand the Endpoint:
+Click on the GET /books/ endpoint to expand it. You will see a "Try it out" button and a field to input the category query parameter.
+![img_8.png](img_8.png)
+
+# Test the Endpoint:
+Click the "Try it out" button. Enter the category you want to search for in the category field. Then, click the "Execute" button. Swagger UI will send a request to the GET /books/ endpoint with the specified query parameter and display the response.
+![img_9.png](img_9.png)
+
+# View the Response:
+After executing the request, you will see the response data. This includes the status code and the JSON response containing the list of books that match the specified category.
+![img_10.png](img_10.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
