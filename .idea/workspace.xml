@@ -4,11 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2586e270-c2f3-4cb1-80ec-a0d9dcd1d5db" name="Changes" comment="readme .nd" />
+    <list default="true" id="2586e270-c2f3-4cb1-80ec-a0d9dcd1d5db" name="Changes" comment="Query parameter and post METHOD">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/book.py" beforeDir="false" afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/book.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,6 +35,9 @@
     &quot;accountId&quot;: &quot;6e0f1312-2ef7-41ec-9edc-750c6fc954fa&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -37,7 +50,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/PMLS/Desktop/FastAPI&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
@@ -154,7 +167,63 @@
       <option name="project" value="LOCAL" />
       <updated>1718231843363</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="readme .nd">
+      <option name="closed" value="true" />
+      <created>1718233043294</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1718233043294</updated>
+    </task>
+    <task id="LOCAL-00014" summary="readme .nd">
+      <option name="closed" value="true" />
+      <created>1718233079294</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1718233079294</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Python">
+      <option name="closed" value="true" />
+      <created>1718233170490</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1718233170490</updated>
+    </task>
+    <task id="LOCAL-00016" summary="path parameter">
+      <option name="closed" value="true" />
+      <created>1718360554409</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1718360554409</updated>
+    </task>
+    <task id="LOCAL-00017" summary="path parameter">
+      <option name="closed" value="true" />
+      <created>1718360667691</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1718360667691</updated>
+    </task>
+    <task id="LOCAL-00018" summary="path parameter">
+      <option name="closed" value="true" />
+      <created>1718361196316</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1718361196316</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Query parameter and post METHOD">
+      <option name="closed" value="true" />
+      <created>1718474789276</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1718474789276</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,6 +260,10 @@
     <MESSAGE value="Fastapi 001" />
     <MESSAGE value="Fastapi 00" />
     <MESSAGE value="readme.nd" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme.nd" />
+    <MESSAGE value="readme .nd" />
+    <MESSAGE value="Python" />
+    <MESSAGE value="path parameter" />
+    <MESSAGE value="Query parameter and post METHOD" />
+    <option name="LAST_COMMIT_MESSAGE" value="Query parameter and post METHOD" />
   </component>
 </project>
