@@ -157,15 +157,55 @@ Click the "Try it out" button. Enter the category you want to search for in the 
 After executing the request, you will see the response data. This includes the status code and the JSON response containing the list of books that match the specified category.
 ![img_10.png](img_10.png)
 
+## The read_author_category_by_query Endpoint
+The read_author_category_by_query endpoint allows users to retrieve books from the collection based on both the author's name and the book's category. This endpoint demonstrates the combined use of **path** and **query parameters** in FastAPI, enabling more specific and dynamic URL paths that can accept user input.
+
+```
+@app.get("/books/{book_author}")
+async def read_author_category_by_query(book_author: str, category: str):
+    book_to_return = []
+    for book in BOOKS:
+        if book.get("author").casefold() == book_author.casefold() and \
+           book.get("category").casefold() == category.casefold():
+            book_to_return.append(book)
+    return book_to_return
+
+```
+- **HTTP Method**: GET
+- **Path**: /books/{book_author}
+- **Path Parameter**: {book_author} is a path parameter that takes the author's name as input.
+- **Query Parameter**: category is a query parameter that takes the category of the books as input.
+- **Description**: This endpoint searches the BOOKS list for books with an author that matches book_author and a category that matches category, both ignoring case.
+- **Response**: It returns a list of books that match both the author and category as a JSON array.
 
 
+# Path and Query Parameters
+## Path Parameters
+Path parameters are variables within the URL path. In this case, book_author captures the author's name from the URL and passes it to the read_author_category_by_query function.
+## Query Parameters
+Query parameters are specified in the URL after the ? symbol. In this case, category is a query parameter used to filter books by their category.
 
 
+# Using Swagger UI to Test the read_author_category_by_query Endpoint
+## Locate the GET /books/{book_author} Endpoint:
+In the Swagger UI, find the section for the GET /books/{book_author} endpoint. It should be listed among other endpoints defined in your FastAPI application.
+![img_11.png](img_11.png)
+## Expand the Endpoint:
+Click on the GET /books/{book_author} endpoint to expand it. You will see a "Try it out" button and fields to input the book_author path parameter and the category query parameter.
+![img_12.png](img_12.png)
 
+## Test the Endpoint:
+Click the "Try it out" button. Enter the author's name in the book_author field and the category in the category field. Then, click the "Execute" button. Swagger UI will send a request to the GET /books/{book_author} endpoint with the specified path and query parameters and display the response.
+![img_13.png](img_13.png)
 
-
-
-
-
-
+## View the Response:
+After executing the request, you will see the response data. This includes the status code and the JSON response containing the list of books that match both the specified author and category.
+```[
+    {
+        "title": "Title Six",
+        "author": "Author Two",
+        "category": "math"
+    }
+]
+```
 
