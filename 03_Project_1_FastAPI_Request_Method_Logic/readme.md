@@ -59,7 +59,7 @@ Navigate to http://127.0.0.1:8000/docs in your web browser. This URL opens the S
 # Using Swagger UI to Test the read_all_books Endpoint
 - **Locate the GET /books Endpoint**:
 In the Swagger UI, find the section for the GET /books endpoint. It should be listed among other endpoints defined in your FastAPI application.
-![img.png](img.png)
+![img.png](C:\Users\PMLS\Desktop\FastAPI\03_Project_1_FastAPI_Request_Method_Logic\img\img.png)
 - **Expand the Endpoint**:
 Click on the GET /books endpoint to expand it. You will see a "Try it out" button and a description of the endpoint.
 
