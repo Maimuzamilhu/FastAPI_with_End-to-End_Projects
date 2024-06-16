@@ -55,11 +55,11 @@ uvicorn book:app --reload
 # Open Swagger UI:
 
 Navigate to http://127.0.0.1:8000/docs in your web browser. This URL opens the Swagger UI, where you can see all the available endpoints and interact with them.
-![img_1.png](img_1.png)
+![img_1.png](img/img_1.png)
 # Using Swagger UI to Test the read_all_books Endpoint
 - **Locate the GET /books Endpoint**:
 In the Swagger UI, find the section for the GET /books endpoint. It should be listed among other endpoints defined in your FastAPI application.
-![img.png](C:\Users\PMLS\Desktop\FastAPI\03_Project_1_FastAPI_Request_Method_Logic\img\img.png)
+![img.png](img/img.png)
 - **Expand the Endpoint**:
 Click on the GET /books endpoint to expand it. You will see a "Try it out" button and a description of the endpoint.
 
@@ -68,7 +68,7 @@ Click the "Try it out" button. Then, click the "Execute" button. Swagger UI will
 
 - **View the Response**:
 After executing the request, you will see the response data. This includes the status code and the JSON response containing the list of books.
-![img_2.png](img_2.png)
+![img_2.png](img/img_2.png)
 
 
 # 01_The read_book Endpoint
@@ -96,19 +96,19 @@ Run your FastAPI application. By default, FastAPI will serve the application at 
 # Using Swagger UI to Test the read_book Endpoint
 ### Locate the GET /books/{book_title} Endpoint:
 In the Swagger UI, find the section for the GET /books/{book_title} endpoint. It should be listed among other endpoints defined in your FastAPI application.
-![img_3.png](img_3.png)
+![img_3.png](img/img_3.png)
 ### Expand the Endpoint:
 Click on the GET /books/{book_title} endpoint to expand it. You will see a "Try it out" button and a field to input the book_title.
-![img_4.png](img_4.png)
+![img_4.png](img/img_4.png)
 
 ### Test the Endpoint:
 Click the "Try it out" button. Enter the title of the book you want to search for in the book_title field. Then, click the "Execute" button. Swagger UI will send a request to the GET /books/{book_title} endpoint and display the response.
-![img_5.png](img_5.png)
+![img_5.png](img/img_5.png)
 
 ### View the Response:
 After executing the request, you will see the response data. This includes the status code and the JSON response containing the details of the book, if found.
 
-![img_6.png](img_6.png)
+![img_6.png](img/img_6.png)
 ### Example Response
 If the book with the title "**Title One**" exists in the BOOKS list, the response might look like this:
 
@@ -144,18 +144,18 @@ Query parameters are specified in the URL after the ? symbol and are typically u
 # Using Swagger UI to Test the read_category_by_query Endpoint
 ### Locate the GET /books/ Endpoint:
 In the Swagger UI, find the section for the GET /books/ endpoint. It should be listed among other endpoints defined in your FastAPI application.
-![img_7.png](img_7.png)
+![img_7.png](img/img_7.png)
 # Expand the Endpoint:
 Click on the GET /books/ endpoint to expand it. You will see a "Try it out" button and a field to input the category query parameter.
-![img_8.png](img_8.png)
+![img_8.png](img/img_8.png)
 
 # Test the Endpoint:
 Click the "Try it out" button. Enter the category you want to search for in the category field. Then, click the "Execute" button. Swagger UI will send a request to the GET /books/ endpoint with the specified query parameter and display the response.
-![img_9.png](img_9.png)
+![img_9.png](img/img_9.png)
 
 # View the Response:
 After executing the request, you will see the response data. This includes the status code and the JSON response containing the list of books that match the specified category.
-![img_10.png](img_10.png)
+![img_10.png](img/img_10.png)
 
 ## The read_author_category_by_query Endpoint
 The read_author_category_by_query endpoint allows users to retrieve books from the collection based on both the author's name and the book's category. This endpoint demonstrates the combined use of **path** and **query parameters** in FastAPI, enabling more specific and dynamic URL paths that can accept user input.
@@ -189,14 +189,14 @@ Query parameters are specified in the URL after the ? symbol. In this case, cate
 # Using Swagger UI to Test the read_author_category_by_query Endpoint
 ## Locate the GET /books/{book_author} Endpoint:
 In the Swagger UI, find the section for the GET /books/{book_author} endpoint. It should be listed among other endpoints defined in your FastAPI application.
-![img_11.png](img_11.png)
+![img_11.png](img/img_11.png)
 ## Expand the Endpoint:
 Click on the GET /books/{book_author} endpoint to expand it. You will see a "Try it out" button and fields to input the book_author path parameter and the category query parameter.
-![img_12.png](img_12.png)
+![img_12.png](img/img_12.png)
 
 ## Test the Endpoint:
 Click the "Try it out" button. Enter the author's name in the book_author field and the category in the category field. Then, click the "Execute" button. Swagger UI will send a request to the GET /books/{book_author} endpoint with the specified path and query parameters and display the response.
-![img_13.png](img_13.png)
+![img_13.png](img/img_13.png)
 
 ## View the Response:
 After executing the request, you will see the response data. This includes the status code and the JSON response containing the list of books that match both the specified author and category.
@@ -231,18 +231,18 @@ The Body dependency in FastAPI allows you to specify the structure and requireme
 # Using Swagger UI to Test the create_body Endpoint
 ## Locate the POST /books/create_body Endpoint:
 In the Swagger UI, find the section for the POST /books/create_body endpoint. It should be listed among other endpoints defined in your FastAPI application.
-![img_14.png](img_14.png)
+![img_14.png](img/img_14.png)
 ## Expand the Endpoint:
 Click on the POST /books/create_body endpoint to expand it. You will see a "Try it out" button and a field to input the request body (new_book).
-![img_15.png](img_15.png)
+![img_15.png](img/img_15.png)
 
 
 ## Test the Endpoint:
 Click the "Try it out" button. Enter the details of the new book in the new_book field. Then, click the "Execute" button. Swagger UI will send a POST request to the POST /books/create_body endpoint with the provided request body and display the response.
-![img_17.png](img_17.png)
+![img_17.png](img/img_17.png)
 ## View the Response:
 After executing the request, you will see the response data. This includes the status code and the JSON response containing the details of the newly added book.
-![img_18.png](img_18.png)
+![img_18.png](img/img_18.png)
 
 # 06_The update_book Endpoint
 The update_book endpoint is designed to update an existing book in the BOOKS collection using the PUT method. It demonstrates how to handle request bodies with the Body dependency in FastAPI, allowing clients to send JSON data representing the updated book details.
@@ -270,18 +270,18 @@ async def update_book(update_book: dict = Body(...)):
 # Swagger UI to Test the update_book Endpoint
 ## Locate the PUT /books/update_book Endpoint:
 In the Swagger UI, find the section for the PUT /books/update_book endpoint. It should be listed among other endpoints defined in your FastAPI application.
-![img_19.png](img_19.png)
+![img_19.png](img/img_19.png)
 ## Expand the Endpoint:
 Click on the PUT /books/update_book endpoint to expand it. You will see a "Try it out" button and a field to input the request body (update_book).
-![img_20.png](img_20.png)
+![img_20.png](img/img_20.png)
 
 ## Test the Endpoint:
 Click the "Try it out" button. Enter the details of the book you want to update in the update_book field. Then, click the "Execute" button. Swagger UI will send a PUT request to the PUT /books/update_book endpoint with the provided request body and display the response.
-![img_21.png](img_21.png)
+![img_21.png](img/img_21.png)
 
 ## View the Response:
 After executing the request, you will see the response data. This includes the status code and a JSON response indicating whether the book was successfully updated or if it was not found.
-![img_22.png](img_22.png)
+![img_22.png](img/img_22.png)
 
 # 07_The delete_book Endpoint
 The delete_book endpoint is used to remove a book from the BOOKS collection based on its title using the DELETE method. This endpoint showcases how to handle path parameters for deletion operations in FastAPI.
