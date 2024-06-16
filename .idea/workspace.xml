@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2586e270-c2f3-4cb1-80ec-a0d9dcd1d5db" name="Changes" comment="readme.md">
-      <change afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/img_11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/img_12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/img_13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/img_14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/img_15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/img_16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/img_17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/img_18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/img_19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/img_20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/img_21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/img_22.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/03_Project_1_FastAPI_Request_Method_Logic/readme.md" afterDir="false" />
     </list>
@@ -266,7 +272,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718494799558</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="readme.md">
+      <option name="closed" value="true" />
+      <created>1718496368957</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1718496368957</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
