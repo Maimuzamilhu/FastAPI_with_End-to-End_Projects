@@ -1,6 +1,8 @@
 #uvicorn Books:app --reload
 
 from fastapi import  FastAPI , Body
+from  pydantic import  BaseModel
+
 
 app = FastAPI()
 
@@ -18,6 +20,14 @@ class book:
         self.description = description
         self.rating = rating
 
+#Pydantic
+class BookRequest(BaseModel):
+    id: int
+    title: str
+    aurthor: str
+    description: str
+    rating: int
+
 
 BOOKS = [
     book(29 , "AGI WILL DESTROY EVERY THING(2050)" , "Muzamil khalid" , "AI IN THE FUTURE" , 5),
@@ -27,10 +37,13 @@ BOOKS = [
     book(11, "AGI WILL DESTROY EVERY THING(2050)", "RAYYAN MANSOORI", "AI IN THE FUTURE", 5),
 ]
 
+
+
 @app.get("/books")
 async def read_all_books():
     return BOOKS
 
 @app.post("/create-book")
-async def create_book(book_request = Body()):
+async def create_book(book_request: BookRequest):
+    new_book = BOOKS(**book_request.dict())
     BOOKS.append(book_request)
