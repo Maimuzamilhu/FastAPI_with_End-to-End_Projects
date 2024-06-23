@@ -51,6 +51,7 @@ def main():
         y_mid = f(x_mid)
         ax.add_patch(plt.Rectangle((x_left, 0), dx, y_mid, fill=False, edgecolor='r'))
 
+
     ax.set_xlabel('x')
     ax.set_ylabel('y')
     ax.legend()
