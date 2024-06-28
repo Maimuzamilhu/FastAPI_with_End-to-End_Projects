@@ -1,17 +1,17 @@
 #uvicorn Books:app --reload
 
-from fastapi import  FastAPI , Body
-from  pydantic import  BaseModel
+from fastapi import  FastAPI # Body
+from  pydantic import  BaseModel , Field
 
 
 app = FastAPI()
 
 class book:
     id :int
-    title:str
-    aurthor:str
-    description:str
-    rating:int
+    title:str = Field(min_length=3)
+    aurthor:str = Field(min_length=1)
+    description:str = Field(min_length=1 , max_length=100)
+    rating:int= Field(gt=-1 , lt=5)
 
     def __init__(self , id, title, aurthor , description , rating):
         self.id = id
