@@ -8,3 +8,4 @@ class Todos(Base):
     title = Column(String)
     description = Column(String)
     priority = Column(Boolean, default=False)
+
