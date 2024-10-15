@@ -5,10 +5,13 @@ from Models import Todos
 from DataBase import engine, SessionLocal
 from typing import Annotated
 from  pydantic import  BaseModel , Field
+from  routers import  Auth
 
 app = FastAPI()
 
 Models.Base.metadata.create_all(bind=engine)
+
+app.include_router(Auth.router)
 
 def get_db():
     db = SessionLocal()
