@@ -3,127 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIJournalist</title>
+    <title>TechInsight Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .animated-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
+        body {
+            font-family: 'Inter', sans-serif;
         }
-        .dot {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 8s infinite;
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-        @keyframes float {
-            0% { transform: translateY(100vh) translateX(-50px); opacity: 0; }
-            50% { opacity: 0.5; }
-            100% { transform: translateY(-100px) translateX(50px); opacity: 0; }
-        }
-        .loader-wrapper {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #1a1f2c;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        transition: opacity 0.5s ease-out;
-    }
-    .loader {
-        width: 60px;
-        height: 60px;
-        border: 5px solid #ffffff20;
-        border-top: 5px solid #9f7aea;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
     </style>
 </head>
-<body class="bg-gradient-to-br from-[#1a1f2c] to-[#2d1b30] text-gray-100 min-h-screen">
-    <div class="animated-background" id="dots"></div>
-
+<body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-[#2a2f3c]/80 backdrop-blur-md shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <a href="/" class="text-xl font-bold text-purple-300">AIJournalist</a>
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="/" class="text-2xl font-bold text-blue-600">TechInsight Hub</a>
+                </div>
                 <div class="hidden md:flex space-x-8">
+                    <a href="/category/ai" class="text-gray-700 hover:text-blue-600 px-3 py-2">AI</a>
+                    <a href="/category/finance" class="text-gray-700 hover:text-blue-600 px-3 py-2">Finance</a>
+                    <a href="/category/sports" class="text-gray-700 hover:text-blue-600 px-3 py-2">Sports</a>
+                    <a href="/all" class="text-gray-700 hover:text-blue-600 px-3 py-2">All News</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <header class="max-w-7xl mx-auto px-4 py-8">
-        <div class="bg-[#2a2f3c]/80 backdrop-blur-md rounded-lg p-6 shadow-xl">
-            <h1 class="text-4xl font-bold text-purple-300 mb-4">AI Journalist</h1>
-            <p class="text-gray-300">Stay informed with the latest updates from around the world, with help of AI.</p>
-            <a href="/all" class="bg-purple-300 text-gray-900 px-4 py-2 mt-4 inline-block rounded-lg">See All News</a>
+    <!-- Hero Section -->
+    <header class="bg-white">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                    <span class="block">Stay Informed with</span>
+                    <span class="block text-blue-600">AI-Powered Insights</span>
+                </h1>
+                <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                    Get the latest news and analysis across AI, Finance, and Sports - curated and enhanced by artificial intelligence.
+                </p>
+            </div>
         </div>
     </header>
 
-    <section class="max-w-7xl mx-auto px-4 py-8">
-        <h2 class="text-2xl font-bold mb-6 text-purple-300">Latest News</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-        {% for article in articles %}
-
-            <div class="bg-[#2a2f3c]/80 backdrop-blur-md rounded-lg overflow-hidden hover:shadow-xl transition duration-300">
-                <img src="https://picsum.photos/400/200" alt="News Image" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-semibold mb-2">{{article.title}}</h3>
-                    <p class="text-gray-300">{{article.preview[:50]}}...</p>
-                    <a href="/article/{{article.id}}" class="text-purple-300 mt-4 inline-block">Read more →</a>
+    <!-- Categories Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8">Featured Categories</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- AI Category -->
+            <div class="category-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                <img src="https://picsum.photos/seed/ai/400/200" alt="AI" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Artificial Intelligence</h3>
+                    <p class="text-gray-600 mb-4">Latest breakthroughs in AI, machine learning, and robotics.</p>
+                    <a href="/category/ai" class="text-blue-600 hover:text-blue-700 font-medium">Explore AI News →</a>
                 </div>
             </div>
-            {% endfor %}
+
+            <!-- Finance Category -->
+            <div class="category-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                <img src="https://picsum.photos/seed/finance/400/200" alt="Finance" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Finance</h3>
+                    <p class="text-gray-600 mb-4">Market insights, economic trends, and investment strategies.</p>
+                    <a href="/category/finance" class="text-blue-600 hover:text-blue-700 font-medium">Explore Finance News →</a>
+                </div>
+            </div>
+
+            <!-- Sports Category -->
+            <div class="category-card bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300">
+                <img src="https://picsum.photos/seed/sports/400/200" alt="Sports" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Sports</h3>
+                    <p class="text-gray-600 mb-4">Latest sports updates, analysis, and highlights.</p>
+                    <a href="/category/sports" class="text-blue-600 hover:text-blue-700 font-medium">Explore Sports News →</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="bg-[#2a2f3c]/80 backdrop-blur-md mt-8"></footer>
-        <div class="max-w-7xl mx-auto px-4 py-6">
-            <div class="text-center text-purple-300">
-                <p>&copy; 2024 AIJournalist. All rights reserved.</p>
+    <!-- Latest Articles -->
+    <section class="bg-gray-50 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-8">Latest Articles</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                {% for article in articles %}
+                <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
+                    <img src="https://picsum.photos/seed/{{article.id}}/400/200" alt="Article image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">{{article.title}}</h3>
+                        <p class="text-gray-600 mb-4">{{article.preview[:100]}}...</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">{{article.date}}</span>
+                            <a href="/article/{{article.id}}" class="text-blue-600 hover:text-blue-700 font-medium">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Categories</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="/category/ai" class="text-base text-gray-500 hover:text-gray-900">AI</a></li>
+                        <li><a href="/category/finance" class="text-base text-gray-500 hover:text-gray-900">Finance</a></li>
+                        <li><a href="/category/sports" class="text-base text-gray-500 hover:text-gray-900">Sports</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Company</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">About</a></li>
+                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Contact</a></li>
+                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Legal</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Privacy</a></li>
+                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Terms</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Subscribe</h3>
+                    <p class="mt-4 text-base text-gray-500">Get the latest news delivered to your inbox.</p>
+                    <form class="mt-4">
+                        <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your email">
+                        <button type="submit" class="mt-2 w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-200 pt-8 text-center">
+                <p class="text-base text-gray-400">&copy; 2024 TechInsight Hub. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
-    <div class="loader-wrapper" id="loader">
-        <div class="loader"></div>
-    </div>
-    <script>
-        function createDots() {
-            const container = document.getElementById('dots');
-            for (let i = 0; i < 50; i++) {
-                const dot = document.createElement('div');
-                dot.className = 'dot';
-                dot.style.width = Math.random() * 4 + 'px';
-                dot.style.height = dot.style.width;
-                dot.style.left = Math.random() * 100 + 'vw';
-                dot.style.animationDelay = Math.random() * 5 + 's';
-                container.appendChild(dot);
-            }
-        }
-        createDots();
-        window.addEventListener('load', () => {
-        const loader = document.getElementById('loader');
-        loader.style.opacity = '0';
-        setTimeout(() => {
-            loader.style.display = 'none';
-        }, 500);
-    });
-    </script>
 </body>
 </html>

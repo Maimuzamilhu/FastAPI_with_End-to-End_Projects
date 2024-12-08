@@ -35,6 +35,7 @@ class ArticleDB(Base):
     author = Column(String(100))
     date = Column(String(100))
     link = Column(String(500))
+    category = Column(String(50))
     created_at = Column(DateTime, default=datetime.utcnow)
 
 # Pydantic Models
@@ -90,9 +91,67 @@ async def article(request: Request, id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Article not found")
     return templates.TemplateResponse("article.html", {"request": request, "article": article})
 
+@app.get("/category/{category}", response_class=HTMLResponse)
+async def category_page(request: Request, category: str, db: Session = Depends(get_db)):
+    # Convert category to lowercase for case-insensitive comparison
+    category = category.lower()
+    
+    # Filter articles based on category
+    # This uses a simple keyword matching approach - you might want to add a proper category field to your database
+    if category == "ai":
+        articles = db.query(ArticleDB).filter(
+            ArticleDB.content.like("%artificial intelligence%") |
+            ArticleDB.content.like("%AI%") |
+            ArticleDB.content.like("%machine learning%") |
+            ArticleDB.title.like("%AI%")
+        ).order_by(desc(ArticleDB.created_at)).all()
+    elif category == "finance":
+        articles = db.query(ArticleDB).filter(
+            ArticleDB.content.like("%finance%") |
+            ArticleDB.content.like("%market%") |
+            ArticleDB.content.like("%investment%") |
+            ArticleDB.content.like("%stock%")
+        ).order_by(desc(ArticleDB.created_at)).all()
+    elif category == "sports":
+        articles = db.query(ArticleDB).filter(
+            ArticleDB.content.like("%sports%") |
+            ArticleDB.content.like("%game%") |
+            ArticleDB.content.like("%tournament%") |
+            ArticleDB.content.like("%athlete%")
+        ).order_by(desc(ArticleDB.created_at)).all()
+    else:
+        # Default to all articles if category is not recognized
+        articles = db.query(ArticleDB).filter(ArticleDB.category == category).order_by(desc(ArticleDB.created_at)).all()
+
+    return templates.TemplateResponse("category.html", {
+        "request": request,
+        "category": category.upper(),
+        "articles": articles
+    })
+
+@app.get("/privacy", response_class=HTMLResponse)
+async def privacy_policy(request: Request):
+    return templates.TemplateResponse("privacy.html", {"request": request})
+
+@app.get("/terms", response_class=HTMLResponse)
+async def terms_of_service(request: Request):
+    return templates.TemplateResponse("terms.html", {"request": request})
+
+@app.get("/about", response_class=HTMLResponse)
+async def about_page(request: Request):
+    return templates.TemplateResponse("about.html", {"request": request})
+
+@app.get("/contact", response_class=HTMLResponse)
+async def contact_page(request: Request):
+    return templates.TemplateResponse("contact.html", {"request": request})
+
+@app.get("/careers", response_class=HTMLResponse)
+async def careers_page(request: Request):
+    return templates.TemplateResponse("careers.html", {"request": request})
+
 # Create tables
 Base.metadata.create_all(bind=engine)
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8001)
