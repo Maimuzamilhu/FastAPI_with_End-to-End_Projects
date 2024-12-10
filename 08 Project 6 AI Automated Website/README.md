@@ -27,14 +27,7 @@ The Automated AI News Website is a fully automated platform that scrapes and agg
 - Pip (Python package installer)
 - An API key from OpenAI
 
-### Installation
 
-1. **Clone the repository**:
-
-   ```bash
-   git clone https://github.com/Unisami/AiSahafi
-   cd AiSahafi
-   ```
 
 2. **Install the required packages**:
 
@@ -46,9 +39,8 @@ The Automated AI News Website is a fully automated platform that scrapes and agg
    - go to main.py and setup your openai API
 
 ### Usage
-
-1. **Start the Flask Server**:
-   - You can start the Flask server by running:
+:
+   - You can start the fastapi server by running:
 
    ```bash
    python app.py

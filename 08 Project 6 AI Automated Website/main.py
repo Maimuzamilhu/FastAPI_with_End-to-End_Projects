@@ -9,14 +9,13 @@ from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 import hashlib
 import re
-import google.generativeai as genai  # Add this import
+import cohere  # Add this import
 
 class MainApp:
     def __init__(self, rss_url='https://techcrunch.com/feed/'):
-        # Replace Cohere setup with Gemini setup
-        genai.configure(api_key='AIzaSyA_Wkb7YQgw4vY7ECIW5NhoxIiaKb9WvcY')  # Replace with your actual API key
-        self.model = genai.GenerativeModel('gemini-pro')
-        
+        # Replace OpenAI setup with Cohere setup
+        self.client = cohere.Client('d4FwulVp9JUvELKQYDrqa7hWmwZ1VHW9GjUGhVlW')  # Replace with your actual API key
+
         # Web Scraping Setup
         self.user_agents = [
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
@@ -119,84 +118,67 @@ class MainApp:
 
     def rewrite_article(self, article: Dict) -> Dict:
         try:
-            prompt = """You are a seasoned technology journalist with a deep understanding of tech innovations and business strategies.
-
-            Task: Transform the following tech article into a polished, professional blog post that captivates both technical and business audiences.
-            
-            Original Title: {original_title}
-
-            Required Output Format:
-            1. First generate a catchy new title that's SEO-friendly and engaging
-            2. Format the article using proper HTML tags as follows:
-                - Use <h1> for the main title
-                - Use <h2> for major section headings
-                - Use <h3> for subsection headings
-                - Use <p> for paragraphs
-                - Use <ul> and <li> for lists
-                - Add proper spacing between sections
-                - Wrap key terms in <strong> tags
-                - Use <blockquote> for important quotes
-            
-            Required Sections (use <h2> for these):
-            - Introduction
-            - Key Developments
-            - Technical Analysis
-            - Business Impact
-            - Market Context
-            - Future Implications
-            - Key Takeaways
-
-            Original Article Content:
-            {article_content}
-
-            Please rewrite this as a professional tech industry analysis piece following all guidelines above. Ensure proper HTML formatting and spacing."""
-
-            response = self.model.generate_content(
-                prompt.format(
-                    original_title=article['title'],
-                    article_content=article['content']
+            response = self.client.generate(
+                model='command',
+                prompt=(
+                    "You are an expert tech journalist and analyst with deep knowledge of technology, business, and innovation. "
+                    "Your writing style is clear, engaging, and insightful, aimed at both technical and non-technical readers.\n\n"
+                    
+                    "Writing Style Requirements:\n"
+                    "1) Use specific numbers, metrics, and data points to support arguments\n"
+                    "2) Focus on practical implications and actionable insights\n"
+                    "3) Include expert citations and references with links\n"
+                    "4) Break down complex technical concepts into understandable terms\n"
+                    "5) Add relevant market context and industry trends\n"
+                    "6) Include a 'Why It Matters' section\n"
+                    "7) End with key takeaways or a 'Bottom Line' section\n"
+                    "8) Add a P.S. with an interesting related fact or future prediction\n\n"
+                    
+                    "Article Structure:\n"
+                    "- Strong opening hook\n"
+                    "- Clear context and background\n"
+                    "- Main analysis with supporting evidence\n"
+                    "- Industry implications\n"
+                    "- Future outlook\n"
+                    "- Practical takeaways\n\n"
+                    
+                    "Additional Guidelines:\n"
+                    "- Use bullet points for key information\n"
+                    "- Include relevant statistics and market data\n"
+                    "- Add subheadings for better readability\n"
+                    "- Highlight expert quotes or insights\n"
+                    "- Reference similar technologies or competing solutions\n"
+                    "- Address potential challenges or limitations\n"
+                    "- Include real-world examples or use cases\n\n"
+                    
+                    f"Please rewrite this tech article following the above guidelines:\n\n{article['content']}\n\n"
+                    "Format the article in clean HTML with appropriate tags for headings, paragraphs, and lists."
                 ),
-                generation_config=genai.types.GenerationConfig(
-                    temperature=0.7,
-                    top_p=0.9,
-                    top_k=50,
-                    max_output_tokens=2048,
-                )
+                max_tokens=2048,
+                temperature=0.7,
+                k=0,
+                p=1,
+                frequency_penalty=0.2,
+                presence_penalty=0.1,
+                stop_sequences=[],
+                return_likelihoods='NONE'
             )
             
-            rewritten_content = response.text.strip()
-            
-            # Extract new title if provided (assuming it's the first line)
-            content_lines = rewritten_content.split('\n')
-            new_title = ''
-            if content_lines and (content_lines[0].startswith('# ') or content_lines[0].startswith('<h1>')):
-                new_title = content_lines[0].replace('# ', '').replace('<h1>', '').replace('</h1>', '').strip()
-                rewritten_content = '\n'.join(content_lines[1:])
-            else:
-                new_title = article['title']
-
-            # Clean up any code formatting
+            rewritten_content = response.generations[0].text.strip()
+            # Remove 'html' prefix if present
             rewritten_content = re.sub(r'^(?:html|```html|```)\s*', '', rewritten_content, flags=re.IGNORECASE)
-            rewritten_content = re.sub(r'```\s*$', '', rewritten_content)
-
-            # Add default styling classes to HTML elements
-            rewritten_content = rewritten_content.replace('<h2>', '<h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">')
-            rewritten_content = rewritten_content.replace('<h3>', '<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">')
-            rewritten_content = rewritten_content.replace('<p>', '<p class="text-gray-700 mb-4 leading-relaxed">')
-            rewritten_content = rewritten_content.replace('<ul>', '<ul class="list-disc pl-6 mb-4 space-y-2">')
-            rewritten_content = rewritten_content.replace('<blockquote>', '<blockquote class="border-l-4 border-blue-500 pl-4 italic my-4">')
 
             return {
-                'title': new_title,
+                'title': article['title'],
                 'author': article.get('author'),
                 'date': article.get('date'),
                 'content': rewritten_content,
-                'preview': self.strip_html(rewritten_content)[:200] + '...'
+                'preview': self.strip_html(rewritten_content)
             }
             
         except Exception as e:
             print(f"Error rewriting article: {str(e)}")
-            return article
+            return article  # Return original article if rewriting fails
     
     def strip_html(self, html_content: str) -> str:
         # Remove HTML tags
