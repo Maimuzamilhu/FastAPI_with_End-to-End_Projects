@@ -6,6 +6,8 @@
     <title>TechInsight Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -13,6 +15,30 @@
         .category-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+            padding: 20px 0;
+        }
+        
+        .swiper-slide {
+            height: auto;
+        }
+        
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #2563eb; /* blue-600 */
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: #2563eb; /* blue-600 */
+        }
+        
+        /* Fix for navigation buttons */
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 24px;
         }
     </style>
 </head>
@@ -86,26 +112,84 @@
     </section>
 
     <!-- Latest Articles -->
-    <section class="bg-gray-50 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-8">Latest Articles</h2>
-            <div class="grid md:grid-cols-3 gap-8">
+    <section class="max-w-7xl mx-auto px-4 py-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Latest Articles</h2>
+        
+        <!-- Swiper Container with proper styling -->
+        <div class="swiper-container relative" style="padding: 20px 0;">
+            <div class="swiper-wrapper">
                 {% for article in articles %}
-                <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-                    <img src="https://picsum.photos/seed/{{article.id}}/400/200" alt="Article image" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">{{article.title}}</h3>
-                        <p class="text-gray-600 mb-4">{{article.preview[:100]}}...</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">{{article.date}}</span>
-                            <a href="/article/{{article.id}}" class="text-blue-600 hover:text-blue-700 font-medium">Read More →</a>
+                <div class="swiper-slide">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden h-full">
+                        <img src="https://picsum.photos/seed/{{article.id}}/400/200" 
+                             alt="Article image" 
+                             class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">{{ article.title }}</h3>
+                            <p class="text-gray-600 mb-4">{{ article.preview }}</p>
+                            <a href="/article/{{ article.id }}" 
+                               class="text-blue-600 hover:text-blue-800">
+                                Read More →
+                            </a>
                         </div>
                     </div>
-                </article>
+                </div>
                 {% endfor %}
             </div>
+            
+            <!-- Navigation buttons -->
+            <div class="swiper-button-next after:text-blue-600"></div>
+            <div class="swiper-button-prev after:text-blue-600"></div>
+            
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
         </div>
     </section>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const swiper = new Swiper('.swiper-container', {
+                // Enable slide per view
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                
+                // Enable pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                
+                // Enable navigation
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                
+                // Responsive breakpoints
+                breakpoints: {
+                    // when window width is >= 640px
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    // when window width is >= 768px
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    }
+                },
+                
+                // Auto play (optional)
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+            });
+        });
+    </script>
 
     <!-- Footer -->
     <footer class="bg-white border-t border-gray-200">
