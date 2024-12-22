@@ -10,7 +10,7 @@ FastAPI is a Python framework that simplifies the creation of APIs. With the inc
 
 ![alt text](<001_Images/Fast apiii.jpeg>)
 
-According to recent reports, the API management market has been growing since 2022. As of 2024, it is valued at approximately 9 billion USD and is projected to reach 94 billion USD. This trend underscores the importance of learning API development, as it is a skill that will be highly beneficial in the near future. The rise of AI and the increasing popularity of APIs mean you can create your own APIs and even sell them in marketplaces.
+According to recent reports, the API management market has been growing since 2022. As of 2024, it is valued at approximately 9 billion USD and is projected to reach 94 billion USD. This trend underscores the importance of learning API development, as it is a skill that will be highly beneficial in the near future. 
 
 ## Structure
 
